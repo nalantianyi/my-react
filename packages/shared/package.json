@@ -1,0 +1,8 @@
+{
+  "name": "shared",
+  "version": "1.0.0",
+  "description": "公共方法",
+  "author": "nalantianyi",
+  "dependencies": {
+  }
+}
