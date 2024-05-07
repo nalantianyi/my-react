@@ -1,13 +1,21 @@
 export type Container = any;
 
-export const createInstance = () => {
+export const createInstance = (...args: any) => {
+	console.log(args);
 	return {} as any;
 };
 
-export const appendInitialChild = () => {
+export const appendInitialChild = (...args: any) => {
+	console.log(args);
 	return {} as any;
 };
 
-export const createTextInstance = () => {
+export const createTextInstance = (...args: any) => {
+	console.log(args);
+	return {} as any;
+};
+
+export const appendChildToContainer = (...args: any) => {
+	console.log(args);
 	return {} as any;
 };
