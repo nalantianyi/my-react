@@ -1,12 +1,13 @@
-import React from 'react';
+import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 
+// 对接vite的热更新机制
+console.log(import.meta.hot);
+
 function App() {
-	return (
-		<div>
-			<Child />
-		</div>
-	);
+	const [num, setNum] = useState(100);
+	window.setNum = setNum;
+	return <div>{num}</div>;
 }
 
 function Child() {

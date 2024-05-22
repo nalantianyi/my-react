@@ -2,7 +2,7 @@
 	"name": "react",
 	"version": "1.0.0",
 	"description": "react公共方法",
-	"module": "index.tsx",
+	"module": "index.ts",
 	"author": "nalantianyi",
 	"dependencies": {
 		"shared": "workspace:*"
