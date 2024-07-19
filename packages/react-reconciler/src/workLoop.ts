@@ -5,6 +5,7 @@ import { HostRoot } from './workTags';
 import { MutationMask, NoFlags } from './fiberFlags';
 import { commitMutationEffects } from './commitWork';
 
+// 全局，当前正在工作的FiberNode
 let workInProgress: FiberNode | null = null;
 
 function prepareRefreshStack(root: FiberRootNode) {
@@ -31,6 +32,7 @@ function markUpdateFromFiberToRoot(fiber: FiberNode) {
 }
 
 function renderRoot(root: FiberRootNode) {
+	// 初始化，让我们当前workingProgress指向第一个FiberNode
 	prepareRefreshStack(root);
 	do {
 		try {
@@ -51,6 +53,8 @@ function renderRoot(root: FiberRootNode) {
 	commitRoot(root);
 }
 
+// 是谁调用的？触发更新的API，render，this.setState，useState，统一的更新机制，方便拓展
+// update
 function commitRoot(root: FiberRootNode) {
 	const finishedWork = root.finishedWork;
 	if (finishedWork === null) {
