@@ -15,10 +15,15 @@ export const beginWork = (wip: FiberNode) => {
 	//比较，返回子fiberNode
 	switch (wip.tag) {
 		case HostRoot:
+			// HostRoot的BeginWork工作流程：
+			// 1. 计算状态最新值
+			// 2. 创建子fiberNode
 			return updateHostRoot(wip);
 		case HostComponent:
+			// 创建子fiberNode
 			return updateHostComponent(wip);
 		case HostText:
+			// HostText没有beginWork工作流程因为它没有子节点
 			return null;
 		case FunctionComponent:
 			return updateFunctionComponent(wip);

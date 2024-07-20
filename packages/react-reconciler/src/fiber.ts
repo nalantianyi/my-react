@@ -59,6 +59,7 @@ export class FiberNode {
 }
 
 export class FiberRootNode {
+	// 挂载节点，抽象类型
 	container: Container;
 	current: FiberNode;
 	// 整个更新完成后的hostRootFiber

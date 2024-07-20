@@ -17,7 +17,9 @@ function markUpdate(fiber: FiberNode) {
 	fiber.flags |= Update;
 }
 
-//递归中的归阶段
+// 递归中的归阶段
+// 对于Host类型fiberNode：构建离屏DOM树
+// 标记Update Flag
 export const completeWork = (wip: FiberNode) => {
 	const newProps = wip.pendingProps;
 	const current = wip.alternate;
@@ -89,7 +91,8 @@ function appendAllChildren(parent: Container, wip: FiberNode) {
 		node = node.sibling;
 	}
 }
-
+// 如何快找到flags
+// 利用completeWork向上遍历的流程，将子fiberNode的flags冒泡到父fiberNode
 function bubbleProperties(wip: FiberNode) {
 	let subtreeFlags = NoFlags;
 	let child = wip.child;
